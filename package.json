@@ -1,23 +1,41 @@
 {
-  "name": "@hansputera/otakudesu-scrape",
-  "version": "1.0.0",
-  "description": "A module that retrieves data from otakudesu.moe",
-  "main": "index.js",
-  "typings": "typings/index.d.ts",
+  "name": "otakudesu-scraper",
+  "version": "1.2.0",
+  "description": "A module that retrieves data from otakudesu.vip. Now with TypeScript!",
+  "main": "./dist/index.js",
+  "typings": "./typings/index.d.ts",
   "scripts": {
-    "test": "node test.js"
+    "clean": "rimraf dist && rimraf typings",
+    "build": "npm run clean && tsc --build tsconfig.json",
+    "test": "npm run build && node ./dist/test",
+    "lint": "eslint \"./src/**/*.ts\" --fix",
+    "docs": "typedoc"
   },
   "keywords": [
-    "otakudesu", "otakudesu scrape", "scrape otakudesu", "anime"
+    "otakudesu",
+    "otakudesu scrape",
+    "scrape otakudesu",
+    "anime"
   ],
   "author": "hansputera",
   "license": "MIT",
   "dependencies": {
     "cheerio": "^1.0.0-rc.5",
-    "got": "^11.8.2"
+    "phin": "^3.6.1"
   },
   "homepage": "https://github.com/hansputera/otakudesu-scrape",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  }
+  "devDependencies": {
+    "@types/node": "16.11.39",
+    "@typescript-eslint/eslint-plugin": "5.32.0",
+    "@typescript-eslint/parser": "5.32.0",
+    "eslint": "8.17.0",
+    "eslint-config-google": "0.14.0",
+    "rimraf": "3.0.2",
+    "typedoc": "0.22.17",
+    "typescript": "4.8.4"
+  },
+  "engines": {
+    "node": ">=16.10.0"
+  },
+  "packageManager": "yarn@3.2.2"
 }
